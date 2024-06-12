@@ -7,4 +7,4 @@ if CODESPACE_NAME.startswith("dttest-"):
     # TODO
 
     # Testing done, force kill codespace
-    subprocess.run(["gh", "codespace", "delete" "--codespace", CODESPACE_NAME, "--force"])
+    subprocess.run(["gh", "codespace", "delete", "--codespace", CODESPACE_NAME, "--force"])
