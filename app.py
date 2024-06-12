@@ -2,7 +2,7 @@ import os
 import subprocess
 CODESPACE_NAME = os.getenv(key="CODESPACE_NAME", default="blank")
 
-if CODESPACE_NAME.startswith("dttest-platform-engineering-demo"):
+if CODESPACE_NAME.startswith("dttest-"):
 
     # TODO
 
