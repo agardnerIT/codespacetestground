@@ -2,7 +2,7 @@ import os
 import hashlib
 import requests
 
-GITHUB_ORG_SLASH_REPOSITORY = os.environ.get("GITHUB_REPOSITORY") # eg. yourOrg/yourRepo
+GITHUB_ORG_SLASH_REPOSITORY = os.environ.get("GITHUB_REPOSITORY", "blank") # eg. yourOrg/yourRepo
 
 def hash_string(input_str, charset="UTF-8", algorithm="SHA256"):
     hash_factory = hashlib.new(algorithm)
