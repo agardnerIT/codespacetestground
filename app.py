@@ -1,7 +1,10 @@
 import os
-
+import subprocess
 CODESPACE_NAME = os.getenv(key="CODESPACE_NAME", default="blank")
-with open("foo.log", mode="w") as file:
 
-    lines = ["a line here\n", f"Codespace Name: {CODESPACE_NAME}"]
-    file.writelines(lines)
+if CODESPACE_NAME.startswith("dttest-platform-engineering-demo"):
+
+    # TODO
+
+    # Testing done, force kill codespace
+    subprocess.run(["gh", "codespace", "delete" "--codespace", CODESPACE_NAME, "--force"])
