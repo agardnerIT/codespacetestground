@@ -1,33 +1,34 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/kubernetes-helm
+// README at: https://github.com/devcontainers/templates/tree/main/src/kubernetes-helm-minikube
 {
-	"name": "Codespaces Testing Ground",
+	"name": "Kubernetes - Minikube-in-Docker",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
 
-	"hostRequirements": {
-		"cpus": 2
-	},
-
-	// Use 'postStartCommand' to run commands after the container starts.
-    "postStartCommand": "python app.py"
-
-	// // Add recommended secrets
-    /*
-	"secrets": {
-	 	  "DT_URL": {
-	 		"description": "eg. https://abc12345.live.dynatrace.com"
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"enableNonRootDocker": "true",
+			"moby": "true"
 		},
-		  "DT_OPERATOR_TOKEN": {
-	    	        "description": "Dynatrace API token with these permissions: Create ActiveGate token, Read entities, Read Settings, Write Settings, Access problem and event feed, metrics and topology, Read configuration, Write configuration, Paas integration - installer downloader"
-		},
-		  "DT_TOKEN": {
-	    	        "description": "Dynatrace API token with these permissions: Ingest metrics, Ingest logs, Ingest events, Ingest OpenTelemetry, Read metrics"
-		},
-  		  "DT_WRITE_SETTINGS_TOKEN": {
-			       "description": "Dynatrace API token with these permissions: Write Settings"
-        },
-		  "OPEN_AI_TOKEN": {
-			"description": "OpenAI API Token. Go to https://platform.openai.com/api-keys"
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+			"version": "latest",
+			"helm": "latest",
+			"minikube": "latest"
 		}
 	}
-    */
+	
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "kubectl version",
+
+	// Use 'postStartCommand' to run commands after the container is created like starting minikube.
+	// "postStartCommand": "nohup bash -c 'minikube start &' > minikube.log 2>&1",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
 }
