@@ -2,4 +2,4 @@ site_name: An Example Tutorial
 nav:
   - Homepage: index.md
 theme:
-  name: mkdocs
+  name: readthedocs
