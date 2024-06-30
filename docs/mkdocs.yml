@@ -1,0 +1,12 @@
+site_name: An Example Tutorial
+nav:
+  - Homepage: index.md
+  - Stage One:
+    - Step One: stageOne/1.md
+    - Step Two: stageOne/2.md
+    - Step Three: stageOne/3.md
+  - Stage Two:
+    - Step One: stageTwo/1.md
+theme:
+  name: mkdocs
+  custom_dir: theme_customisations
