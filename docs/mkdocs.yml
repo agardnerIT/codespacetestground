@@ -1,5 +1,0 @@
-site_name: An Example Tutorial
-nav:
-  - Homepage: index.md
-theme:
-  name: material
