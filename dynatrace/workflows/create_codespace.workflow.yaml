@@ -1,0 +1,41 @@
+// optional import of sdk modules
+import { execution } from '@dynatrace-sdk/automation-utils';
+import { credentialVaultClient } from '@dynatrace-sdk/client-classic-environment-v2';
+
+export default async function ({ execution_id }) {
+
+  // Define repo.
+  const repoName = "agardnerit/codespacetestground";
+
+  // Retrieve credential from DT Vault
+  // GitHub fine grained PAT with: "Codespaces (rw)" and mandatory "Metadata" (r) permissions
+  const tokenCredentials = await credentialVaultClient.getCredentialsDetails({
+    id: 'CREDENTIALS_VAULT-493DA74760A73C45'
+  });
+
+  /* Standard machines available are:
+   * - basicLinux32gb (2 core)
+   * - standardLinux32gb (4 core)
+   */
+  const payload = {
+    "ref": "main",
+    "machine": "basicLinux32gb",
+    "display_name": "dttest-codespacetestground"
+  }
+
+  // Startup the codespace
+  const codespace_creation_result = await fetch("https://api.github.com/repos/" + repoName + "/codespaces", {
+    method: "POST",
+    headers: {
+      "Accept": "application/vnd.github+json",
+      "Authorization": "Bearer " + tokenCredentials['token'],
+      "X-GitHub-Api-Version": "2022-11-28"
+    },
+    body: JSON.stringify(payload),
+  });
+
+  console.log(codespace_creation_result);
+  
+  return codespace_creation_result;
+  
+}
