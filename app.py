@@ -1,6 +1,5 @@
 import os
 import subprocess
-from utils import *
 
 CODESPACE_NAME = os.getenv(key="CODESPACE_NAME", default="blank")
 
