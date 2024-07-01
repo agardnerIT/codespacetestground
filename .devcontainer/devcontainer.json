@@ -8,7 +8,7 @@
 	},
 
 	// Use 'postStartCommand' to run commands after the container starts.
-    "postStartCommand": "python app.py"
+        "postStartCommand": "python app.py"
 
 	// // Add recommended secrets
     /*
