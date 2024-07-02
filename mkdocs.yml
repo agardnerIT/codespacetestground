@@ -9,4 +9,16 @@ nav:
     - Step One: stageTwo/1.md
 theme:
   name: mkdocs
-  custom_dir: theme_customisations
+  custom_dir: docs/theme_customisations
+
+# This flag controls whether or not the RUM tag is injected into head
+# See docs/theme_customisations/base.html near </head>
+#
+# -- To enable DT JS insert --
+# Set this to true before running `mkdocs build`
+#
+# Set to false when developing
+prod_mode: true
+
+# You should customise this value
+dt_rum_snippet: '<script type="text/javascript" src="https://js-cdn.dynatracelabs.com/jstag/14868fa4215/bf30285qdf/83901f69d01e16e_complete.js" crossorigin="anonymous"></script>'
